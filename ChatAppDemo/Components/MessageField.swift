@@ -9,15 +9,26 @@ import SwiftUI
 
 struct MessageField: View {
     
+    @EnvironmentObject var messageManager: MessagesManager
     @State private var message = ""
     
     var body: some View {
         HStack {
-            CustomTextField(placeholder: Text("Enter your message here"), text: $message)
+            CustomTextField(placeholder: Text("닉네임을 입력하세요"), text: $message)
             
             Button {
-                print("Message sent!")
-                message = ""
+                
+                var user = User(name: "", email: "")
+                user.name = "지은"
+                user.email = "순순@~~~~"
+                
+                FirebaseService.createUser(user: user, completion: {
+                    print("로그인 뷰로 이동")
+                    print("222")
+                })
+                
+//                messageManager.sendMessage(text: message)
+//                message = ""
             } label: {
                 Image(systemName: "paperplane.fill")
                     .foregroundColor(.white)
@@ -25,6 +36,32 @@ struct MessageField: View {
                     .background(Color("Peach"))
                     .cornerRadius(50)
             }
+            
+            Button {
+                
+//                messageManager.sendMessage(text: message)
+//                message = ""
+                                
+                var user = User(name: "", email: "")
+                user.name = "지은"
+                user.email = "순순@~~~~"
+
+                FirebaseService.updateUser(user: user, completion: {
+                    print("수정되었습니다")
+                    print("222")
+                })
+
+                // 위에 작업이 끝났다는걸 우리는 알수가 없어
+                
+            } label: {
+                Image(systemName: "eraser.line.dashed")
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color("Peach"))
+                    .cornerRadius(50)
+            }
+            
+            
 
         }
         .padding(.horizontal)
@@ -38,6 +75,7 @@ struct MessageField: View {
 struct MessageField_Previews: PreviewProvider {
     static var previews: some View {
         MessageField()
+            .environmentObject(MessagesManager())
     }
 }
 

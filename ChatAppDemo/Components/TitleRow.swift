@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct TitleRow: View {
+    
+//    @EnvironmentObject var messageManager: MessagesManager
+//    @State private var message = ""
+    
     var imageUrl = URL(string: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3164&q=80")
     var name = "cyndi"
     
@@ -32,19 +36,51 @@ struct TitleRow: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Image(systemName: "phone.fill")
-                .foregroundColor(.gray)
-                .padding(10)
-                .background(.white)
-                .cornerRadius(50)
+            Button {
+                
+//                messageManager.sendMessage(text: message)
+//                message = ""
+                                
+                var user = User(name: "", email: "")
+                user.name = "지은"
+                user.email = "순순@~~~~"
+
+                FirebaseService.createUser(user: user, completion: {
+                    print("로그인 뷰로 이동")
+                    print("222")
+                })
+
+                // 위에 작업이 끝났다는걸 우리는 알수가 없어
+                
+            } label: {
+                Text("닉네임 수정")
+            }
+            
+            
+//            CustomTextField(placeholder: Text("닉네임을 입력하세요(messagefield)"), text: $message)
+//
+//            Button {
+//                messageManager.sendMessage(text: message)
+//                message = ""
+//            } label: {
+//                Image(systemName: "paperplane.fill")
+//                    .foregroundColor(.white)
+//                    .padding(10)
+//                    .background(Color("Peach"))
+//                    .cornerRadius(50)
+//            }
+            
+            
+            
+            
         }
         .padding()
     }
 }
 
-struct TitleRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TitleRow()
-            .background(Color("Peach"))
-    }
-}
+//struct TitleRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TitleRow()
+//            .background(Color("Peach"))
+//    }
+//}

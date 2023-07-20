@@ -20,6 +20,7 @@
 		C2AAA7E02A62D6FC00565BD3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C2AAA7DF2A62D6FC00565BD3 /* FirebaseFirestore */; };
 		C2AAA7E22A62D6FC00565BD3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2AAA7E12A62D6FC00565BD3 /* FirebaseFirestoreSwift */; };
 		C2AAA7E42A62D92600565BD3 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAA7E32A62D92600565BD3 /* MessagesManager.swift */; };
+		C2AAA7E72A63AD2500565BD3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AAA7E62A63AD2500565BD3 /* FirebaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C2AAA7DA2A62CEDC00565BD3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		C2AAA7DC2A62D65A00565BD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2AAA7E32A62D92600565BD3 /* MessagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
+		C2AAA7E62A63AD2500565BD3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		C2AAA7C12A62B74C00565BD3 /* ChatAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C2AAA7E52A63AD0E00565BD3 /* Services */,
 				C2AAA7C22A62B74C00565BD3 /* ChatAppDemoApp.swift */,
 				C2AAA7C42A62B74C00565BD3 /* ContentView.swift */,
 				C2AAA7DC2A62D65A00565BD3 /* GoogleService-Info.plist */,
@@ -106,6 +109,14 @@
 				C2AAA7D42A62C01C00565BD3 /* Message.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C2AAA7E52A63AD0E00565BD3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C2AAA7E62A63AD2500565BD3 /* FirebaseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				C2AAA7D92A62CE0700565BD3 /* Extensions.swift in Sources */,
 				C2AAA7D52A62C01C00565BD3 /* Message.swift in Sources */,
 				C2AAA7E42A62D92600565BD3 /* MessagesManager.swift in Sources */,
+				C2AAA7E72A63AD2500565BD3 /* FirebaseService.swift in Sources */,
 				C2AAA7DB2A62CEDC00565BD3 /* MessageField.swift in Sources */,
 				C2AAA7D72A62C81F00565BD3 /* MessageBubble.swift in Sources */,
 				C2AAA7C32A62B74C00565BD3 /* ChatAppDemoApp.swift in Sources */,
