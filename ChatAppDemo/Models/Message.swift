@@ -8,17 +8,16 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct Message: Identifiable, Codable {
-    var id: String
-    var text: String
-    var received: Bool
-    var timestamp: Date
+w
+//    var received: Bool
+//    var timestamp: Date
 }
 
 struct User: Codable {
     @DocumentID var userID: String?
     var name: String
-    var email: String
+//    var lastname: String
+//    var age: Int
 }
 
 //Identifiable means that each message can be uniquely identified with its ID.

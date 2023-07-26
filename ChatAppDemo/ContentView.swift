@@ -10,17 +10,23 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var messagesManager = MessagesManager()
+    @State private var name = ""
+    
+//    struct Message: Identifiable, Codable {
+//        var id: String
+//        var nickname: String
+    
     
     var messageArray = ["Hello you", "How are you doing?", "I've been building SwiftUI application from scratch and it's so much fun!"]
     
     var body: some View {
         VStack {
             VStack {
-                TitleRow()
+                TitleRow(name: $name)
                 ScrollViewReader { proxy in
                     ScrollView {
                         ForEach(messagesManager.messages, id: \.id) { message in
-                            MessageBubble(message: message)
+//                            MessageBubble(message: message)
                         }
                     }
                     .padding(.top, 10)
@@ -37,7 +43,7 @@ struct ContentView: View {
             }
             .background(Color("Peach"))
             
-            MessageField()
+            MessageField(name: $name)
                 .environmentObject(messagesManager)
         }
         .onAppear {

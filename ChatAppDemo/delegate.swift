@@ -35,7 +35,7 @@ class MessagesManager: ObservableObject {
                     }
                 }
             
-            self.messages.sort { $0.timestamp < $1.timestamp }
+//            self.messages.sort { $0.timestamp < $1.timestamp }
             
             if let id = self.messages.last?.id {
                 self.lastMessageId = id
@@ -48,9 +48,9 @@ class MessagesManager: ObservableObject {
     
     func sendMessage(text: String) {
         do {
-            let newMessage = Message(id: "\(UUID())", text: text, received: false, timestamp: Date())
+            let newMessage = Message(id: "\(UUID())", nickname: text)
             
-            try db.collection("messages").document().setData(from: newMessage)
+            try db.collection("users").document().setData(from: newMessage)
             
         } catch {
             print("Error adding message to Firestore: \(error)")
@@ -58,3 +58,7 @@ class MessagesManager: ObservableObject {
     }
     
 }
+
+
+
+//
